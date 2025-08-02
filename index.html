@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StreamPro - Your Entertainment Hub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #f4f4f4;
+    }
+    header {
+      background: #111;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .product {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 15px;
+      text-align: center;
+    }
+    .product img {
+      width: 100%;
+      border-radius: 8px;
+      max-height: 150px;
+      object-fit: cover;
+    }
+    .product h3 {
+      margin: 10px 0;
+    }
+    .product p {
+      color: #555;
+    }
+    .product button {
+      margin-top: 10px;
+      background: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #111;
+      color: white;
+    }
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 12px 15px;
+      border-radius: 50%;
+      font-size: 24px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>StreamPro</h1>
+    <p>Your favorite entertainment services in one place</p>
+  </header>
+
+  <div class="products">
+    <div class="product">
+      <img src="https://i.imgur.com/6k3PbUh.jpg" alt="Dstv">
+      <h3>DStv Streaming</h3>
+      <p>1 Month Access - $9.99</p>
+      <button onclick="buy('DStv', 9.99)">Buy Now</button>
+    </div>
+    <div class="product">
+      <img src="https://i.imgur.com/szrUcl1.jpg" alt="Startimes">
+      <h3>Startimes On</h3>
+      <p>1 Month Access - $4.99</p>
+      <button onclick="buy('Startimes', 4.99)">Buy Now</button>
+    </div>
+    <div class="product">
+      <img src="https://i.imgur.com/lVi5wV7.jpg" alt="Netflix">
+      <h3>Netflix Premium</h3>
+      <p>1 Month - $13.99</p>
+      <button onclick="buy('Netflix', 13.99)">Buy Now</button>
+    </div>
+    <div class="product">
+      <img src="https://i.imgur.com/j1sTfMC.jpg" alt="YouTube Premium">
+      <h3>YouTube Premium</h3>
+      <p>1 Month - $7.99</p>
+      <button onclick="buy('YouTube Premium', 7.99)">Buy Now</button>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 StreamPro. All rights reserved.
+  </footer>
+
+  <a class="whatsapp-btn" href="https://wa.me/254757780414" target="_blank">💬</a>
+
+  <script>
+    function buy(service, amount) {
+      let email = prompt("Enter your email for delivery:");
+      if (!email) return alert("Purchase cancelled.");
+      // PayPal redirect (example)
+      const query = `?item_name=${encodeURIComponent(service)}&amount=${amount}&email=${email}`;
+      window.location.href = "https://www.paypal.com/cgi-bin/webscr" + query;
+    }
+  </script>
+
+</body>
+</html>
